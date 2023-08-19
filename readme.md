@@ -4,9 +4,10 @@
 ```
 docker build -t myjenkins-blueocean:2.332.3-1 .
 
-#IF you are having problems building the image yourself, you can pull from my registry and rename it to `myjenkins-blueocean:2.332.3-1`
+OR 
 
-docker pull devopsjourney1/jenkins-blueocean:2.332.3-1 && docker tag devopsjourney1/jenkins-blueocean:2.332.3-1 myjenkins-blueocean:2.332.3-1
+docker build -t myjenkins-blueocean:latest .
+
 ```
 
 ## Create the network 'jenkins'
@@ -44,7 +45,7 @@ docker exec jenkins-blueocean cat /var/jenkins_home/secrets/initialAdminPassword
 
 ## Connect to the Jenkins
 ```
-https://localhost:8080/
+http://localhost:8080/
 ```
 
 ## Installation Reference:
@@ -59,7 +60,4 @@ docker run -d --restart=always -p 127.0.0.1:2376:2375 --network jenkins -v /var/
 docker inspect <container_id> | grep IPAddress
 ```
 
-## Using my Jenkins Python Agent
-```
-docker pull devopsjourney1/myjenkinsagents:python
-```
+
